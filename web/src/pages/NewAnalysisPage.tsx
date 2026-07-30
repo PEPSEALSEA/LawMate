@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { motion } from 'framer-motion'
 import { ArrowLeft, Loader2, Sparkles } from 'lucide-react'
 import { Link, useNavigate } from 'react-router'
 import { generateCaseFromSituation } from '@/data/caseTemplates'
@@ -36,14 +37,24 @@ export function NewAnalysisPage() {
         กลับไปที่เคสทั้งหมด
       </Link>
 
-      <div className="mt-6 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
-        <span className="flex size-12 items-center justify-center rounded-2xl bg-brand-700 text-white shadow-md shadow-brand-700/20">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="mt-6 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8"
+      >
+        <motion.span
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.1, type: 'spring', stiffness: 300, damping: 20 }}
+          className="flex size-12 items-center justify-center rounded-2xl bg-brand-700 text-white shadow-md shadow-brand-700/20"
+        >
           <Sparkles className="size-6" aria-hidden />
-        </span>
-        <h1 className="mt-4 text-xl font-bold text-ink sm:text-2xl">บอกสถานการณ์ของคุณ</h1>
+        </motion.span>
+        <h1 className="mt-4 text-xl font-bold text-ink sm:text-2xl">เล่าปัญหาของคุณให้ฟังหน่อย</h1>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          พิมพ์เล่าปัญหาที่คุณเจอด้วยภาษาพูดธรรมดา ไม่ต้องรู้ศัพท์กฎหมาย LawMate จะวิเคราะห์สิทธิ
-          สร้างแผนดำเนินการ และร่างเอกสารให้คุณ
+          พิมพ์เล่าเรื่องด้วยภาษาพูดธรรมดา ไม่ต้องรู้ศัพท์กฎหมายก็ได้ LawMate จะช่วยดูว่าคุณมีสิทธิอะไร
+          ต้องทำอะไรต่อ และช่วยร่างเอกสารให้
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6">
@@ -52,44 +63,51 @@ export function NewAnalysisPage() {
             onChange={(e) => setSituation(e.target.value)}
             rows={6}
             placeholder="เช่น นายจ้างไม่จ่ายค่าล่วงเวลาให้ทั้งที่ทำงานเกินเวลาทุกวัน..."
-            className="w-full resize-none rounded-2xl border border-black/10 p-4 text-sm leading-relaxed text-ink outline-none focus:border-brand-500"
+            className="w-full resize-none rounded-2xl border border-black/10 p-4 text-sm leading-relaxed text-ink outline-none transition-colors focus:border-brand-500"
           />
 
-          <button
+          <motion.button
             type="submit"
             disabled={!situation.trim() || loading}
+            whileHover={situation.trim() && !loading ? { scale: 1.015 } : undefined}
+            whileTap={situation.trim() && !loading ? { scale: 0.985 } : undefined}
             className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-700 px-5 py-3.5 text-sm font-semibold text-white shadow-md shadow-brand-700/20 transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? (
               <>
                 <Loader2 className="size-4 animate-spin" aria-hidden />
-                กำลังวิเคราะห์สถานการณ์...
+                กำลังวิเคราะห์ให้อยู่...
               </>
             ) : (
               <>
                 <Sparkles className="size-4" aria-hidden />
-                วิเคราะห์สถานการณ์
+                เริ่มวิเคราะห์
               </>
             )}
-          </button>
+          </motion.button>
         </form>
 
         <div className="mt-6 border-t border-black/5 pt-5">
-          <p className="text-xs font-semibold tracking-wide text-muted uppercase">ตัวอย่างสถานการณ์</p>
+          <p className="text-xs font-semibold tracking-wide text-muted uppercase">ลองเลือกตัวอย่างดูก่อนก็ได้</p>
           <div className="mt-3 flex flex-col gap-2">
-            {examples.map((example) => (
-              <button
+            {examples.map((example, index) => (
+              <motion.button
                 key={example}
                 type="button"
                 onClick={() => setSituation(example)}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 + index * 0.08, duration: 0.3 }}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
                 className="rounded-xl bg-surface px-4 py-3 text-left text-sm text-ink/80 transition-colors hover:bg-brand-50"
               >
                 {example}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

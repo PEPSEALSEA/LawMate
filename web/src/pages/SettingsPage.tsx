@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { useProfile } from '@/state/ProfileContext'
 
@@ -15,7 +16,12 @@ export function SettingsPage() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
+      className="mx-auto max-w-2xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10"
+    >
       <h1 className="text-2xl font-bold text-ink">ตั้งค่า</h1>
       <p className="mt-1 text-sm text-muted">จัดการข้อมูลส่วนตัวและการแจ้งเตือนของคุณ</p>
 
@@ -71,14 +77,32 @@ export function SettingsPage() {
           </label>
         </div>
 
-        <button
+        <motion.button
           type="submit"
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-brand-700/20 hover:bg-brand-800"
         >
-          {saved ? <Check className="size-4" aria-hidden /> : null}
-          {saved ? 'บันทึกแล้ว' : 'บันทึกการเปลี่ยนแปลง'}
-        </button>
+          <AnimatePresence mode="wait" initial={false}>
+            {saved ? (
+              <motion.span
+                key="saved"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-2"
+              >
+                <Check className="size-4" aria-hidden />
+                บันทึกแล้ว
+              </motion.span>
+            ) : (
+              <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                บันทึกการเปลี่ยนแปลง
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   )
 }

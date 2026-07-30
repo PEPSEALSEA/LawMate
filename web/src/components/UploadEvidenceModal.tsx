@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { File, Trash2, UploadCloud } from 'lucide-react'
 import { Modal } from '@/components/Modal'
 import { useCases } from '@/state/CasesContext'
@@ -37,19 +38,21 @@ export function UploadEvidenceModal({
     <Modal
       open={open}
       onClose={onClose}
-      title="Upload Evidence"
-      subtitle={`เพิ่มเอกสารหลักฐานสำหรับเคส ${legalCase.referenceCode}`}
+      title="แนบหลักฐาน"
+      subtitle={`อัปโหลดไฟล์ที่เกี่ยวข้องกับเคส ${legalCase.referenceCode}`}
       icon={<UploadCloud className="size-5" aria-hidden />}
     >
-      <button
+      <motion.button
         type="button"
         onClick={() => inputRef.current?.click()}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
         className="flex w-full flex-col items-center gap-2 rounded-xl border-2 border-dashed border-brand-200 bg-brand-50/50 px-4 py-8 text-center transition-colors hover:bg-brand-50"
       >
         <UploadCloud className="size-7 text-brand-700" aria-hidden />
-        <span className="text-sm font-semibold text-brand-700">คลิกเพื่อเลือกไฟล์</span>
-        <span className="text-xs text-muted">รองรับ PDF, รูปภาพ, เอกสาร Word</span>
-      </button>
+        <span className="text-sm font-semibold text-brand-700">คลิกเพื่อเลือกไฟล์จากเครื่อง</span>
+        <span className="text-xs text-muted">รองรับไฟล์ PDF รูปภาพ และเอกสาร Word</span>
+      </motion.button>
       <input
         ref={inputRef}
         type="file"
@@ -66,33 +69,40 @@ export function UploadEvidenceModal({
           ไฟล์ที่แนบแล้ว ({legalCase.evidence.length})
         </p>
         {legalCase.evidence.length === 0 ? (
-          <p className="mt-3 text-sm text-muted">ยังไม่มีไฟล์แนบ</p>
+          <p className="mt-3 text-sm text-muted">ยังไม่มีไฟล์แนบ ลองอัปโหลดไฟล์แรกของคุณดูสิ</p>
         ) : (
           <ul className="mt-3 space-y-2">
-            {legalCase.evidence.map((file) => (
-              <li
-                key={file.id}
-                className="flex items-center justify-between gap-3 rounded-xl border border-black/5 bg-surface px-3 py-2.5"
-              >
-                <div className="flex min-w-0 items-center gap-2.5">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-700/10 text-brand-700">
-                    <File className="size-4" aria-hidden />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-ink">{file.name}</p>
-                    <p className="text-xs text-muted">{file.sizeLabel}</p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => removeEvidence(legalCase.id, file.id)}
-                  className="flex size-8 shrink-0 items-center justify-center rounded-lg text-muted hover:bg-urgent/10 hover:text-urgent"
-                  aria-label={`ลบ ${file.name}`}
+            <AnimatePresence initial={false}>
+              {legalCase.evidence.map((file) => (
+                <motion.li
+                  key={file.id}
+                  layout
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, x: 20, height: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-black/5 bg-surface px-3 py-2.5"
                 >
-                  <Trash2 className="size-4" aria-hidden />
-                </button>
-              </li>
-            ))}
+                  <div className="flex min-w-0 items-center gap-2.5">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-700/10 text-brand-700">
+                      <File className="size-4" aria-hidden />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium text-ink">{file.name}</p>
+                      <p className="text-xs text-muted">{file.sizeLabel}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => removeEvidence(legalCase.id, file.id)}
+                    className="flex size-8 shrink-0 items-center justify-center rounded-lg text-muted transition-colors hover:bg-urgent/10 hover:text-urgent"
+                    aria-label={`ลบ ${file.name}`}
+                  >
+                    <Trash2 className="size-4" aria-hidden />
+                  </button>
+                </motion.li>
+              ))}
+            </AnimatePresence>
           </ul>
         )}
       </div>

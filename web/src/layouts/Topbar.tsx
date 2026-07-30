@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Bell, LogOut, Scale, Settings, User } from 'lucide-react'
 import { Link } from 'react-router'
 import { useAlerts } from '@/state/AlertsContext'
-import { cn } from '@/lib/cn'
 
 export function Topbar() {
   const { unreadCount } = useAlerts()
@@ -24,61 +24,70 @@ export function Topbar() {
           aria-label="การแจ้งเตือน"
         >
           <Bell className="size-5" aria-hidden />
-          {unreadCount > 0 ? (
-            <span className="absolute top-1.5 right-1.5 flex size-4 items-center justify-center rounded-full bg-urgent text-[10px] font-bold text-white">
-              {unreadCount}
-            </span>
-          ) : null}
+          <AnimatePresence>
+            {unreadCount > 0 ? (
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0 }}
+                className="absolute top-1.5 right-1.5 flex size-4 items-center justify-center rounded-full bg-urgent text-[10px] font-bold text-white"
+              >
+                {unreadCount}
+              </motion.span>
+            ) : null}
+          </AnimatePresence>
         </Link>
 
         <div className="relative">
-          <button
+          <motion.button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="flex size-10 items-center justify-center rounded-full bg-brand-700 text-sm font-semibold text-white"
           >
             JD
-          </button>
+          </motion.button>
 
-          {menuOpen ? (
-            <>
-              <div
-                className="fixed inset-0 z-10"
-                onClick={() => setMenuOpen(false)}
-                aria-hidden
-              />
-              <div
-                className={cn(
-                  'absolute right-0 z-20 mt-2 w-48 overflow-hidden rounded-xl border border-black/5 bg-white py-1.5 shadow-xl shadow-black/10',
-                )}
-              >
-                <Link
-                  to="/profile"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink hover:bg-surface"
+          <AnimatePresence>
+            {menuOpen ? (
+              <>
+                <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} aria-hidden />
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 z-20 mt-2 w-48 overflow-hidden rounded-xl border border-black/5 bg-white py-1.5 shadow-xl shadow-black/10"
                 >
-                  <User className="size-4 text-muted" aria-hidden />
-                  โปรไฟล์
-                </Link>
-                <Link
-                  to="/settings"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink hover:bg-surface"
-                >
-                  <Settings className="size-4 text-muted" aria-hidden />
-                  ตั้งค่า
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex w-full items-center gap-2.5 px-4 py-2.5 text-left text-sm text-urgent hover:bg-urgent/5"
-                >
-                  <LogOut className="size-4" aria-hidden />
-                  ออกจากระบบ
-                </button>
-              </div>
-            </>
-          ) : null}
+                  <Link
+                    to="/profile"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink hover:bg-surface"
+                  >
+                    <User className="size-4 text-muted" aria-hidden />
+                    โปรไฟล์
+                  </Link>
+                  <Link
+                    to="/settings"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink hover:bg-surface"
+                  >
+                    <Settings className="size-4 text-muted" aria-hidden />
+                    ตั้งค่า
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex w-full items-center gap-2.5 px-4 py-2.5 text-left text-sm text-urgent hover:bg-urgent/5"
+                  >
+                    <LogOut className="size-4" aria-hidden />
+                    ออกจากระบบ
+                  </button>
+                </motion.div>
+              </>
+            ) : null}
+          </AnimatePresence>
         </div>
       </div>
     </header>

@@ -23,7 +23,7 @@ LawMate is an AI legal assistant for Thai users: situation analysis, rights, act
 ## Stack
 
 - App lives in `web/` — **Vite + React 19 + TypeScript + Tailwind CSS v4**
-- Packages in use: `react-router`, `lucide-react`, `clsx`, `tailwind-merge`, `@fontsource/sarabun`
+- Packages in use: `react-router`, `lucide-react`, `clsx`, `tailwind-merge`, `@fontsource/sarabun`, `framer-motion`
 - Vite plugins: `@vitejs/plugin-react`, `@tailwindcss/vite`
 - Path alias: `@/` → `web/src/`
 - Do not rewrite frameworks without an explicit request.

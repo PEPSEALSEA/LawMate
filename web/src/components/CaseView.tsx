@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { ActionCenter } from '@/components/ActionCenter'
 import { ActionPlan } from '@/components/ActionPlan'
 import { AIInsights } from '@/components/AIInsights'
@@ -19,10 +20,15 @@ export function CaseView({ legalCase }: { legalCase: LegalCase }) {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_20rem]">
         <div className="space-y-6">
-          <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
+            className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm"
+          >
             <h2 className="text-lg font-bold text-ink">สรุปสถานการณ์</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">{legalCase.summary}</p>
-          </div>
+          </motion.div>
 
           <ActionPlan legalCase={legalCase} />
 
@@ -31,7 +37,12 @@ export function CaseView({ legalCase }: { legalCase: LegalCase }) {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+          className="space-y-6"
+        >
           <ActionCenter
             activeAction={activeModal}
             onDraftDocument={() => setActiveModal('draft')}
@@ -41,7 +52,7 @@ export function CaseView({ legalCase }: { legalCase: LegalCase }) {
           <div className="hidden lg:block">
             <AIInsights insights={legalCase.insights} />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <DraftDocumentModal
