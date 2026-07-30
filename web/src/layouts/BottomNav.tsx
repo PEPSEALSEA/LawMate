@@ -9,21 +9,21 @@ export function BottomNav() {
   const { unreadCount } = useAlerts()
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/8 bg-panel/95 backdrop-blur-sm lg:hidden">
-      <div className="flex items-center justify-around px-2 py-2">
+    <nav className="fixed inset-x-0 bottom-0 z-40 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden">
+      <div className="mx-auto flex max-w-md items-center justify-around rounded-[1.5rem] bg-panel/95 px-2 py-2 shadow-[0_8px_30px_rgba(61,42,28,0.12)] ring-1 ring-ink/8 backdrop-blur-md">
         {bottomNavItems.map((item) => (
           <NavLink key={item.to} to={item.to} end={item.end} className="relative">
             {({ isActive }) => (
               <span
                 className={cn(
-                  'relative flex min-w-16 flex-col items-center gap-1 rounded-xl px-3 py-1.5 text-[11px] font-medium transition-colors',
+                  'relative flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-1.5 text-[11px] font-medium transition-colors',
                   isActive ? 'text-brand-700' : 'text-muted',
                 )}
               >
                 {isActive ? (
                   <motion.span
                     layoutId="bottom-nav-active-pill"
-                    className="absolute inset-0 -z-10 rounded-xl bg-brand-100"
+                    className="absolute inset-0 -z-10 rounded-2xl bg-brand-100"
                     transition={{ type: 'spring', stiffness: 500, damping: 38 }}
                   />
                 ) : null}
