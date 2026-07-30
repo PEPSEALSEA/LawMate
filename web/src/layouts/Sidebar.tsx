@@ -19,8 +19,8 @@ export function Sidebar() {
   const { profile } = useProfile()
 
   return (
-    <aside className="hidden w-[15.5rem] shrink-0 flex-col rounded-[1.75rem] bg-panel/90 p-3 shadow-[0_8px_30px_rgba(61,42,28,0.06)] ring-1 ring-ink/6 backdrop-blur-md lg:flex">
-      <Link to={routes.app} className="mb-4 flex items-center gap-3 rounded-2xl px-2.5 py-2.5 transition-colors hover:bg-brand-50/80">
+    <aside className="hidden h-full w-[15.5rem] shrink-0 flex-col overflow-hidden rounded-[1.75rem] bg-panel/90 p-3 shadow-[0_8px_30px_rgba(61,42,28,0.06)] ring-1 ring-ink/6 backdrop-blur-md lg:flex">
+      <Link to={routes.app} className="mb-4 flex shrink-0 items-center gap-3 rounded-2xl px-2.5 py-2.5 transition-colors hover:bg-brand-50/80">
         <span className="flex size-10 items-center justify-center rounded-2xl bg-brand-700 text-brand-50 shadow-md shadow-brand-700/25">
           <Scale className="size-5" aria-hidden />
         </span>
@@ -30,11 +30,11 @@ export function Sidebar() {
         </div>
       </Link>
 
-      <div className="mb-2 px-2.5">
+      <div className="mb-2 shrink-0 px-2.5">
         <p className="text-[10px] font-semibold tracking-[0.14em] text-muted/70 uppercase">เมนู</p>
       </div>
 
-      <nav className="flex-1 space-y-1">
+      <nav className="min-h-0 flex-1 space-y-1 overflow-y-auto">
         {sidebarNavItems.map((item) => (
           <NavLink key={item.to} to={item.to} end={item.end} className="relative block">
             {({ isActive }) => (
@@ -66,7 +66,7 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="mt-3 space-y-3">
+      <div className="mt-3 shrink-0 space-y-3">
         <motion.div whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.985 }}>
           <NavLink
             to={routes.newCase}
