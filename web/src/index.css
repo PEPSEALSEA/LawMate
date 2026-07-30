@@ -12,22 +12,23 @@
   --font-sans: 'Sarabun', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Baloo 2', 'Sarabun', ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1e40af;
-  --color-brand-800: #1e3a8a;
-  --color-brand-900: #172554;
+  --color-brand-50: #fbf3e7;
+  --color-brand-100: #f3e4d0;
+  --color-brand-200: #e5cfaf;
+  --color-brand-500: #a67c52;
+  --color-brand-600: #8c6239;
+  --color-brand-700: #4a3421;
+  --color-brand-800: #3a2819;
+  --color-brand-900: #2a1c12;
 
-  --color-surface: #f8fafc;
-  --color-ink: #0f172a;
-  --color-muted: #64748b;
-  --color-success: #4ade80;
-  --color-success-ink: #15803d;
-  --color-urgent: #f97316;
-  --color-insight: #e0f2fe;
+  --color-surface: #fcf3e8;
+  --color-panel: #fffbf6;
+  --color-ink: #3d2a1c;
+  --color-muted: #7a5738;
+  --color-success: #6f9b6a;
+  --color-success-ink: #3f6b3c;
+  --color-urgent: #c45a2c;
+  --color-insight: #f0e6d4;
 }
 
 @layer base {

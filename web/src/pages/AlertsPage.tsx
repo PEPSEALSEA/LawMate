@@ -20,7 +20,7 @@ export function AlertsPage() {
             onClick={markAllRead}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-4 py-2 text-xs font-semibold text-ink hover:bg-surface"
+            className="inline-flex items-center gap-1.5 rounded-full border border-ink/12 px-4 py-2 text-xs font-semibold text-ink hover:bg-surface"
           >
             <CheckCheck className="size-4" aria-hidden />
             ทำเครื่องหมายว่าอ่านแล้วทั้งหมด
@@ -33,7 +33,7 @@ export function AlertsPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex flex-col items-center gap-3 rounded-2xl border border-black/5 bg-white py-16 text-center"
+            className="flex flex-col items-center gap-3 rounded-2xl border border-ink/8 bg-panel py-16 text-center"
           >
             <BellOff className="size-8 text-muted" aria-hidden />
             <p className="text-sm text-muted">ยังไม่มีการแจ้งเตือนในตอนนี้</p>

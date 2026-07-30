@@ -13,14 +13,14 @@ export function CaseHero({ legalCase }: { legalCase: LegalCase }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="relative overflow-hidden rounded-3xl bg-brand-900 p-6 shadow-xl shadow-brand-900/15 sm:p-8"
+      className="relative overflow-hidden rounded-3xl bg-brand-900 p-6 shadow-xl shadow-brand-900/20 sm:p-8"
     >
       <div
         aria-hidden
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-50"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 40%), radial-gradient(circle at 85% 90%, rgba(59,130,246,0.25), transparent 45%)',
+            'radial-gradient(circle at 15% 20%, rgba(251,243,231,0.12), transparent 40%), radial-gradient(circle at 85% 90%, rgba(166,124,82,0.35), transparent 45%)',
         }}
       />
 
@@ -53,7 +53,7 @@ export function CaseHero({ legalCase }: { legalCase: LegalCase }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.18, duration: 0.4 }}
-          className="mt-6 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10"
+          className="mt-6 rounded-2xl bg-panel/[0.07] p-4 ring-1 ring-white/10"
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-sm font-medium text-white">
@@ -64,14 +64,14 @@ export function CaseHero({ legalCase }: { legalCase: LegalCase }) {
               className={
                 daysLeft <= 3
                   ? 'rounded-full bg-urgent/90 px-3 py-1 text-xs font-semibold text-white'
-                  : 'rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white'
+                  : 'rounded-full bg-panel/15 px-3 py-1 text-xs font-semibold text-white'
               }
             >
               {daysLeft > 0 ? `เหลือเวลาอีก ${daysLeft} วัน` : 'เลยกำหนดเวลาแล้ว'}
             </span>
           </div>
           <div className="mt-3 flex items-center gap-3">
-            <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/15">
+            <div className="h-2 flex-1 overflow-hidden rounded-full bg-panel/15">
               <motion.div
                 className="h-full rounded-full bg-success"
                 initial={{ width: 0 }}

@@ -57,7 +57,7 @@ export function DraftDocumentModal({
           onClick={handleCopy}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-black/10 px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-surface"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-ink/12 px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-surface"
         >
           {copied ? <Check className="size-4 text-success-ink" aria-hidden /> : <Copy className="size-4" aria-hidden />}
           {copied ? 'คัดลอกแล้ว' : 'คัดลอกข้อความ'}

@@ -11,8 +11,6 @@ const features = [
   { icon: ShieldCheck, label: 'ปลอดภัย เป็นส่วนตัว' },
 ]
 
-const illustrationBg = '#F7EEE0'
-
 export function WelcomePage() {
   const navigate = useNavigate()
 
@@ -24,8 +22,7 @@ export function WelcomePage() {
       onKeyDown={(event) => {
         if (event.key === 'Enter' || event.key === ' ') navigate(routes.app)
       }}
-      className="relative flex min-h-svh cursor-pointer flex-col items-center overflow-hidden"
-      style={{ backgroundColor: illustrationBg }}
+      className="relative flex min-h-svh cursor-pointer flex-col items-center overflow-hidden bg-surface"
     >
       <div
         aria-hidden
@@ -42,11 +39,11 @@ export function WelcomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="font-display text-5xl font-extrabold tracking-tight text-[#4A3421] sm:text-7xl">
+          <h1 className="font-display text-5xl font-extrabold tracking-tight text-brand-700 sm:text-7xl">
             LawMate
           </h1>
-          <p className="mt-1 text-base font-semibold text-[#8C6239] sm:text-xl">คู่หูด้านกฎหมาย</p>
-          <p className="mt-2 text-sm leading-relaxed text-[#8C6239]/80 sm:mt-3 sm:text-base">
+          <p className="mt-1 text-base font-semibold text-brand-600 sm:text-xl">คู่หูด้านกฎหมาย</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted sm:mt-3 sm:text-base">
             เข้าใจกฎหมายง่ายขึ้น ใช้สิทธิได้มั่นใจในทุกเรื่อง
           </p>
         </motion.div>
@@ -78,7 +75,7 @@ export function WelcomePage() {
             }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 rounded-full bg-[#4A3421] px-8 py-4 text-base font-semibold text-[#FBF3E7] shadow-lg shadow-[#4A3421]/25 transition-colors hover:bg-[#3a2819]"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-8 py-4 text-base font-semibold text-brand-50 shadow-lg shadow-brand-700/25 transition-colors hover:bg-brand-800"
           >
             เริ่มต้นใช้งาน
             <ArrowRight className="size-5" aria-hidden />
@@ -93,17 +90,15 @@ export function WelcomePage() {
         >
           {features.map((feature) => (
             <div key={feature.label} className="flex flex-col items-center gap-2">
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-white/70 text-[#8C6239] shadow-sm shadow-[#8C6239]/10 sm:size-14">
+              <span className="flex size-12 items-center justify-center rounded-2xl bg-panel/80 text-brand-600 shadow-sm shadow-brand-600/10 sm:size-14">
                 <feature.icon className="size-5 sm:size-6" aria-hidden />
               </span>
-              <p className="text-[11px] leading-tight font-medium text-[#4A3421]/80 sm:text-xs">
-                {feature.label}
-              </p>
+              <p className="text-[11px] leading-tight font-medium text-ink/80 sm:text-xs">{feature.label}</p>
             </div>
           ))}
         </motion.div>
 
-        <p className="mt-6 text-xs text-[#8C6239]/60 sm:mt-8">แตะที่ไหนก็ได้เพื่อเริ่มต้น</p>
+        <p className="mt-6 text-xs text-muted/70 sm:mt-8">แตะที่ไหนก็ได้เพื่อเริ่มต้น</p>
       </div>
     </div>
   )

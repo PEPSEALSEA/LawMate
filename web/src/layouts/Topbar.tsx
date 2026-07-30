@@ -10,12 +10,12 @@ export function Topbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="flex h-16 items-center justify-between border-b border-black/5 bg-white px-4 lg:h-20 lg:justify-end lg:px-8">
-      <Link to={routes.app} className="flex items-center gap-2 font-bold text-ink lg:hidden">
-        <span className="flex size-8 items-center justify-center rounded-lg bg-brand-700 text-white">
+    <header className="flex h-16 items-center justify-between border-b border-ink/8 bg-panel px-4 lg:h-20 lg:justify-end lg:px-8">
+      <Link to={routes.app} className="flex items-center gap-2 font-display font-bold text-ink lg:hidden">
+        <span className="flex size-8 items-center justify-center rounded-lg bg-brand-700 text-brand-50">
           <Scale className="size-4" aria-hidden />
         </span>
-        LawMate AI
+        LawMate
       </Link>
 
       <div className="flex items-center gap-4">
@@ -59,7 +59,7 @@ export function Topbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -6, scale: 0.97 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 z-20 mt-2 w-48 overflow-hidden rounded-xl border border-black/5 bg-white py-1.5 shadow-xl shadow-black/10"
+                  className="absolute right-0 z-20 mt-2 w-48 overflow-hidden rounded-xl border border-ink/8 bg-panel py-1.5 shadow-xl shadow-brand-900/10"
                 >
                   <Link
                     to={routes.profile}

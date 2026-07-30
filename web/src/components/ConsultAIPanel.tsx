@@ -132,7 +132,7 @@ export function ConsultAIPanel({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="พิมพ์คำถามของคุณ..."
-            className="flex-1 rounded-full border border-black/10 px-4 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
+            className="flex-1 rounded-full border border-ink/12 px-4 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
           />
           <motion.button
             type="submit"

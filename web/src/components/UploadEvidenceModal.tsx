@@ -81,7 +81,7 @@ export function UploadEvidenceModal({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, x: 20, height: 0 }}
                   transition={{ duration: 0.25 }}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-black/5 bg-surface px-3 py-2.5"
+                  className="flex items-center justify-between gap-3 rounded-xl border border-ink/8 bg-surface px-3 py-2.5"
                 >
                   <div className="flex min-w-0 items-center gap-2.5">
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-700/10 text-brand-700">

@@ -15,7 +15,7 @@ export function KnowledgeCenterPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.06, duration: 0.35 }}
             whileHover={{ y: -3 }}
-            className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+            className="rounded-2xl border border-ink/8 bg-panel p-5 shadow-sm transition-shadow hover:shadow-md"
           >
             <span className="flex size-10 items-center justify-center rounded-xl bg-brand-700/10 text-brand-700">
               <article.icon className="size-5" aria-hidden />

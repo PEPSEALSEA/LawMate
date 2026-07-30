@@ -19,7 +19,7 @@ export function ProfilePage() {
     >
       <h1 className="text-2xl font-bold text-ink">โปรไฟล์</h1>
 
-      <div className="mt-6 flex items-center gap-4 rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+      <div className="mt-6 flex items-center gap-4 rounded-2xl border border-ink/8 bg-panel p-6 shadow-sm">
         <span className="flex size-16 items-center justify-center rounded-full bg-brand-700 text-xl font-bold text-white">
           {profile.name
             .split(' ')
@@ -39,7 +39,7 @@ export function ProfilePage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="rounded-2xl border border-black/5 bg-white p-5 text-center shadow-sm"
+          className="rounded-2xl border border-ink/8 bg-panel p-5 text-center shadow-sm"
         >
           <p className="text-2xl font-bold text-brand-700">{cases.length}</p>
           <p className="mt-1 text-xs text-muted">เคสทั้งหมด</p>
@@ -48,7 +48,7 @@ export function ProfilePage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.16 }}
-          className="rounded-2xl border border-black/5 bg-white p-5 text-center shadow-sm"
+          className="rounded-2xl border border-ink/8 bg-panel p-5 text-center shadow-sm"
         >
           <p className="text-2xl font-bold text-brand-700">{activeCount}</p>
           <p className="mt-1 text-xs text-muted">กำลังดำเนินการ</p>
@@ -57,7 +57,7 @@ export function ProfilePage() {
 
       <Link
         to={routes.cases}
-        className="mt-4 flex items-center justify-between rounded-2xl border border-black/5 bg-white p-4 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-surface"
+        className="mt-4 flex items-center justify-between rounded-2xl border border-ink/8 bg-panel p-4 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-surface"
       >
         <span className="flex items-center gap-2.5">
           <FolderKanban className="size-4 text-brand-700" aria-hidden />

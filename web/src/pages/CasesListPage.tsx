@@ -52,7 +52,7 @@ export function CasesListPage() {
             >
               <Link
                 to={routes.caseDetail(legalCase.id)}
-                className="group flex flex-col rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                className="group flex flex-col rounded-2xl border border-ink/8 bg-panel p-5 shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex items-start justify-between gap-3">
                   <StatusBadge status={legalCase.status} light={false} />
@@ -68,7 +68,7 @@ export function CasesListPage() {
                 </p>
 
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/5">
+                  <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-ink/8">
                     <motion.div
                       className="h-full rounded-full bg-brand-700"
                       initial={{ width: 0 }}

@@ -42,7 +42,7 @@ export function NewAnalysisPage() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-6 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8"
+        className="mt-6 rounded-3xl border border-ink/8 bg-panel p-6 shadow-sm sm:p-8"
       >
         <motion.span
           initial={{ scale: 0.6, opacity: 0 }}
@@ -64,7 +64,7 @@ export function NewAnalysisPage() {
             onChange={(e) => setSituation(e.target.value)}
             rows={6}
             placeholder="เช่น นายจ้างไม่จ่ายค่าล่วงเวลาให้ทั้งที่ทำงานเกินเวลาทุกวัน..."
-            className="w-full resize-none rounded-2xl border border-black/10 p-4 text-sm leading-relaxed text-ink outline-none transition-colors focus:border-brand-500"
+            className="w-full resize-none rounded-2xl border border-ink/12 p-4 text-sm leading-relaxed text-ink outline-none transition-colors focus:border-brand-500"
           />
 
           <motion.button
@@ -88,7 +88,7 @@ export function NewAnalysisPage() {
           </motion.button>
         </form>
 
-        <div className="mt-6 border-t border-black/5 pt-5">
+        <div className="mt-6 border-t border-ink/8 pt-5">
           <p className="text-xs font-semibold tracking-wide text-muted uppercase">ลองเลือกตัวอย่างดูก่อนก็ได้</p>
           <div className="mt-3 flex flex-col gap-2">
             {examples.map((example, index) => (

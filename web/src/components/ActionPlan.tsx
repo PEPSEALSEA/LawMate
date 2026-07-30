@@ -8,7 +8,7 @@ export function ActionPlan({ legalCase }: { legalCase: LegalCase }) {
   const { advanceStep } = useCases()
 
   return (
-    <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-ink/8 bg-panel p-6 shadow-sm">
       <h2 className="text-lg font-bold text-ink">แผนดำเนินการ</h2>
       <p className="mt-1 text-sm text-muted">ทำตามขั้นตอนทีละข้อ ระบบจะปลดล็อกขั้นถัดไปให้อัตโนมัติ</p>
 
@@ -27,7 +27,7 @@ export function ActionPlan({ legalCase }: { legalCase: LegalCase }) {
               {!isLast ? (
                 <span
                   aria-hidden
-                  className="absolute top-8 left-[15px] h-[calc(100%-2rem)] w-0.5 bg-black/10"
+                  className="absolute top-8 left-[15px] h-[calc(100%-2rem)] w-0.5 bg-ink/10"
                 >
                   <motion.span
                     className="block w-full bg-success"
@@ -42,8 +42,8 @@ export function ActionPlan({ legalCase }: { legalCase: LegalCase }) {
                 className={cn(
                   'relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors duration-300',
                   step.status === 'done' && 'bg-success text-white',
-                  step.status === 'current' && 'border-2 border-brand-700 bg-white text-brand-700',
-                  step.status === 'pending' && 'bg-black/5 text-muted',
+                  step.status === 'current' && 'border-2 border-brand-700 bg-panel text-brand-700',
+                  step.status === 'pending' && 'bg-ink/5 text-muted',
                 )}
               >
                 <AnimatePresence mode="wait" initial={false}>

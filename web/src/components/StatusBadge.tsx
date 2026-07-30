@@ -3,15 +3,15 @@ import { statusLabel } from '@/lib/case-utils'
 import type { CaseStatus } from '@/types'
 
 const toneClasses: Record<CaseStatus, string> = {
-  in_progress: 'bg-white/15 text-white',
+  in_progress: 'bg-panel/15 text-white',
   done: 'bg-success/20 text-success-ink',
-  pending: 'bg-white/10 text-white/80',
+  pending: 'bg-panel/10 text-white/80',
 }
 
 const dotClasses: Record<CaseStatus, string> = {
   in_progress: 'bg-brand-200 text-brand-200',
   done: 'bg-success text-success',
-  pending: 'bg-white/50 text-white/50',
+  pending: 'bg-panel/50 text-white/50',
 }
 
 export function StatusBadge({ status, light = true }: { status: CaseStatus; light?: boolean }) {

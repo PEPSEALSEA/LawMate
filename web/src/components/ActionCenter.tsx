@@ -40,7 +40,7 @@ export function ActionCenter({
   ]
 
   return (
-    <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-ink/8 bg-panel p-6 shadow-sm">
       <h2 className="text-lg font-bold text-ink">เครื่องมือช่วยเหลือ</h2>
 
       <div className="mt-4 space-y-3">
@@ -61,7 +61,7 @@ export function ActionCenter({
               <span
                 className={cn(
                   'flex size-10 shrink-0 items-center justify-center rounded-lg transition-colors duration-200',
-                  isActive ? 'bg-white/10 text-white' : 'bg-brand-700/10 text-brand-700',
+                  isActive ? 'bg-panel/10 text-white' : 'bg-brand-700/10 text-brand-700',
                 )}
               >
                 <item.icon className="size-5" aria-hidden />

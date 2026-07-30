@@ -7,14 +7,14 @@ import { routes } from '@/lib/routes'
 
 export function Sidebar() {
   return (
-    <aside className="hidden w-64 shrink-0 flex-col border-r border-black/5 bg-white lg:flex">
+    <aside className="hidden w-64 shrink-0 flex-col border-r border-ink/8 bg-panel lg:flex">
       <div className="flex items-center gap-2.5 px-6 py-6">
-        <span className="flex size-10 items-center justify-center rounded-xl bg-brand-700 text-white shadow-md shadow-brand-700/20">
+        <span className="flex size-10 items-center justify-center rounded-xl bg-brand-700 text-brand-50 shadow-md shadow-brand-700/20">
           <Scale className="size-5" aria-hidden />
         </span>
         <div>
-          <p className="text-base font-bold leading-tight text-ink">LawMate AI</p>
-          <p className="text-xs leading-tight text-muted">Legal Intelligence</p>
+          <p className="font-display text-base font-bold leading-tight text-ink">LawMate</p>
+          <p className="text-xs leading-tight text-muted">คู่หูด้านกฎหมาย</p>
         </div>
       </div>
 

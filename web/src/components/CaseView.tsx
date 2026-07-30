@@ -24,7 +24,7 @@ export function CaseView({ legalCase }: { legalCase: LegalCase }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
-            className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-ink/8 bg-panel p-6 shadow-sm"
           >
             <h2 className="text-lg font-bold text-ink">สรุปสถานการณ์</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">{legalCase.summary}</p>

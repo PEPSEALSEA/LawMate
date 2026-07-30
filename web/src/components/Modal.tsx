@@ -34,14 +34,14 @@ export function Modal({ open, onClose, title, subtitle, icon, children, widthCla
             exit={{ opacity: 0, y: 24, scale: 0.98 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className={cn(
-              'relative flex max-h-[88svh] w-full flex-col rounded-t-3xl bg-white shadow-2xl sm:max-h-[80svh] sm:rounded-3xl',
+              'relative flex max-h-[88svh] w-full flex-col rounded-t-3xl bg-panel shadow-2xl sm:max-h-[80svh] sm:rounded-3xl',
               widthClassName ?? 'sm:max-w-lg',
             )}
             role="dialog"
             aria-modal="true"
             aria-label={title}
           >
-            <div className="flex items-start justify-between gap-4 border-b border-black/5 px-6 py-5">
+            <div className="flex items-start justify-between gap-4 border-b border-ink/8 px-6 py-5">
               <div className="flex items-center gap-3">
                 {icon ? (
                   <span className="flex size-10 items-center justify-center rounded-xl bg-brand-700/10 text-brand-700">

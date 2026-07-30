@@ -25,14 +25,14 @@ export function SettingsPage() {
       <h1 className="text-2xl font-bold text-ink">ตั้งค่า</h1>
       <p className="mt-1 text-sm text-muted">จัดการข้อมูลส่วนตัวและการแจ้งเตือนของคุณ</p>
 
-      <form onSubmit={handleSubmit} className="mt-6 space-y-6 rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+      <form onSubmit={handleSubmit} className="mt-6 space-y-6 rounded-2xl border border-ink/8 bg-panel p-6 shadow-sm">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="block">
             <span className="text-xs font-semibold text-muted">ชื่อ-นามสกุล</span>
             <input
               value={form.name}
               onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-              className="mt-1.5 w-full rounded-xl border border-black/10 px-3.5 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
+              className="mt-1.5 w-full rounded-xl border border-ink/12 px-3.5 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
             />
           </label>
           <label className="block">
@@ -40,7 +40,7 @@ export function SettingsPage() {
             <input
               value={form.phone}
               onChange={(e) => setForm((prev) => ({ ...prev, phone: e.target.value }))}
-              className="mt-1.5 w-full rounded-xl border border-black/10 px-3.5 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
+              className="mt-1.5 w-full rounded-xl border border-ink/12 px-3.5 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
             />
           </label>
         </div>
@@ -51,11 +51,11 @@ export function SettingsPage() {
             type="email"
             value={form.email}
             onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-            className="mt-1.5 w-full rounded-xl border border-black/10 px-3.5 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
+            className="mt-1.5 w-full rounded-xl border border-ink/12 px-3.5 py-2.5 text-sm text-ink outline-none focus:border-brand-500"
           />
         </label>
 
-        <div className="space-y-3 border-t border-black/5 pt-5">
+        <div className="space-y-3 border-t border-ink/8 pt-5">
           <p className="text-xs font-semibold tracking-wide text-muted uppercase">การแจ้งเตือน</p>
           <label className="flex items-center justify-between gap-4 text-sm text-ink">
             แจ้งเตือนทางอีเมลเมื่อใกล้ครบกำหนด
