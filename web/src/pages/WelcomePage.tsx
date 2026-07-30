@@ -42,7 +42,9 @@ export function WelcomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="text-4xl font-bold tracking-tight text-[#4A3421] sm:text-6xl">LawMate</h1>
+          <h1 className="font-display text-5xl font-extrabold tracking-tight text-[#4A3421] sm:text-7xl">
+            LawMate
+          </h1>
           <p className="mt-1 text-base font-semibold text-[#8C6239] sm:text-xl">คู่หูด้านกฎหมาย</p>
           <p className="mt-2 text-sm leading-relaxed text-[#8C6239]/80 sm:mt-3 sm:text-base">
             เข้าใจกฎหมายง่ายขึ้น ใช้สิทธิได้มั่นใจในทุกเรื่อง
@@ -60,17 +62,6 @@ export function WelcomePage() {
             alt="ตัวการ์ตูนทนายความน่ารักถือหนังสือกฎหมาย ยืนอยู่หน้าตาชั่งและกองหนังสือกฎหมาย"
             className="mx-auto h-auto max-h-[42vh] w-full object-contain sm:max-h-[48vh]"
           />
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: -6 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 20 }}
-            className="absolute top-6 left-2 max-w-[9.5rem] rounded-2xl rounded-bl-sm bg-white px-3.5 py-2.5 text-left shadow-md shadow-[#8C6239]/15 sm:top-10 sm:left-6"
-          >
-            <p className="text-xs leading-snug font-medium text-[#4A3421]">
-              ไม่ว่าปัญหาอะไร เราพร้อมช่วยคุณ
-            </p>
-          </motion.div>
         </motion.div>
 
         <motion.div
