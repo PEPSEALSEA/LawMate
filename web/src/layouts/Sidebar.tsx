@@ -3,6 +3,7 @@ import { Plus, Scale } from 'lucide-react'
 import { NavLink } from 'react-router'
 import { sidebarNavItems } from '@/layouts/navItems'
 import { cn } from '@/lib/cn'
+import { routes } from '@/lib/routes'
 
 export function Sidebar() {
   return (
@@ -45,7 +46,7 @@ export function Sidebar() {
       <div className="p-4">
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           <NavLink
-            to="/cases/new"
+            to={routes.newCase}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-700 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-brand-700/20 transition-colors hover:bg-brand-800"
           >
             <Plus className="size-4" aria-hidden />

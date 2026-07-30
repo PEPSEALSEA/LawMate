@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FolderKanban, LogOut } from 'lucide-react'
 import { Link } from 'react-router'
+import { routes } from '@/lib/routes'
 import { useCases } from '@/state/CasesContext'
 import { useProfile } from '@/state/ProfileContext'
 
@@ -55,7 +56,7 @@ export function ProfilePage() {
       </div>
 
       <Link
-        to="/cases"
+        to={routes.cases}
         className="mt-4 flex items-center justify-between rounded-2xl border border-black/5 bg-white p-4 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-surface"
       >
         <span className="flex items-center gap-2.5">

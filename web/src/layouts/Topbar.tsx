@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bell, LogOut, Scale, Settings, User } from 'lucide-react'
 import { Link } from 'react-router'
+import { routes } from '@/lib/routes'
 import { useAlerts } from '@/state/AlertsContext'
 
 export function Topbar() {
@@ -10,7 +11,7 @@ export function Topbar() {
 
   return (
     <header className="flex h-16 items-center justify-between border-b border-black/5 bg-white px-4 lg:h-20 lg:justify-end lg:px-8">
-      <Link to="/" className="flex items-center gap-2 font-bold text-ink lg:hidden">
+      <Link to={routes.app} className="flex items-center gap-2 font-bold text-ink lg:hidden">
         <span className="flex size-8 items-center justify-center rounded-lg bg-brand-700 text-white">
           <Scale className="size-4" aria-hidden />
         </span>
@@ -19,7 +20,7 @@ export function Topbar() {
 
       <div className="flex items-center gap-4">
         <Link
-          to="/alerts"
+          to={routes.alerts}
           className="relative flex size-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-ink"
           aria-label="การแจ้งเตือน"
         >
@@ -61,7 +62,7 @@ export function Topbar() {
                   className="absolute right-0 z-20 mt-2 w-48 overflow-hidden rounded-xl border border-black/5 bg-white py-1.5 shadow-xl shadow-black/10"
                 >
                   <Link
-                    to="/profile"
+                    to={routes.profile}
                     onClick={() => setMenuOpen(false)}
                     className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink hover:bg-surface"
                   >
@@ -69,7 +70,7 @@ export function Topbar() {
                     โปรไฟล์
                   </Link>
                   <Link
-                    to="/settings"
+                    to={routes.settings}
                     onClick={() => setMenuOpen(false)}
                     className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink hover:bg-surface"
                   >

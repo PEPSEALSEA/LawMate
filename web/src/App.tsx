@@ -8,6 +8,7 @@ import { KnowledgeCenterPage } from '@/pages/KnowledgeCenterPage'
 import { NewAnalysisPage } from '@/pages/NewAnalysisPage'
 import { ProfilePage } from '@/pages/ProfilePage'
 import { SettingsPage } from '@/pages/SettingsPage'
+import { WelcomePage } from '@/pages/WelcomePage'
 import { AlertsProvider } from '@/state/AlertsContext'
 import { CasesProvider } from '@/state/CasesContext'
 import { ProfileProvider } from '@/state/ProfileContext'
@@ -18,17 +19,18 @@ export default function App() {
       <AlertsProvider>
         <ProfileProvider>
           <Routes>
-            <Route element={<AppShell />}>
-              <Route path="/" element={<DashboardPage />} />
-              <Route path="/cases" element={<CasesListPage />} />
-              <Route path="/cases/new" element={<NewAnalysisPage />} />
-              <Route path="/cases/:caseId" element={<CaseDetailPage />} />
-              <Route path="/knowledge" element={<KnowledgeCenterPage />} />
-              <Route path="/settings" element={<SettingsPage />} />
-              <Route path="/alerts" element={<AlertsPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="/" element={<WelcomePage />} />
+            <Route path="/app" element={<AppShell />}>
+              <Route index element={<DashboardPage />} />
+              <Route path="cases" element={<CasesListPage />} />
+              <Route path="cases/new" element={<NewAnalysisPage />} />
+              <Route path="cases/:caseId" element={<CaseDetailPage />} />
+              <Route path="knowledge" element={<KnowledgeCenterPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="alerts" element={<AlertsPage />} />
+              <Route path="profile" element={<ProfilePage />} />
             </Route>
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </ProfileProvider>
       </AlertsProvider>

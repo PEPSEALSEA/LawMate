@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { AlertTriangle, BellOff, CheckCheck } from 'lucide-react'
 import { Link } from 'react-router'
+import { routes } from '@/lib/routes'
 import { useAlerts } from '@/state/AlertsContext'
 
 export function AlertsPage() {
@@ -49,7 +50,7 @@ export function AlertsPage() {
                 transition={{ delay: index * 0.05, duration: 0.3 }}
               >
                 <Link
-                  to={`/cases/${alert.caseId}`}
+                  to={routes.caseDetail(alert.caseId)}
                   onClick={() => markRead(alert.id)}
                   className="flex items-start gap-3 rounded-2xl border border-urgent/20 bg-urgent/5 p-4 transition-colors hover:bg-urgent/10"
                 >

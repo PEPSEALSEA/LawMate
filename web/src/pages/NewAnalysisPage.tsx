@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Loader2, Sparkles } from 'lucide-react'
 import { Link, useNavigate } from 'react-router'
 import { generateCaseFromSituation } from '@/data/caseTemplates'
+import { routes } from '@/lib/routes'
 import { useCases } from '@/state/CasesContext'
 
 const examples = [
@@ -26,13 +27,13 @@ export function NewAnalysisPage() {
       const newCase = generateCaseFromSituation(situation.trim())
       addCase(newCase)
       setLoading(false)
-      navigate(`/cases/${newCase.id}`)
+      navigate(routes.caseDetail(newCase.id))
     }, 900)
   }
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
-      <Link to="/cases" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink">
+      <Link to={routes.cases} className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink">
         <ArrowLeft className="size-4" aria-hidden />
         กลับไปที่เคสทั้งหมด
       </Link>

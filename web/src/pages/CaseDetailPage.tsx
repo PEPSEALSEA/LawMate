@@ -1,5 +1,6 @@
 import { Navigate, useParams } from 'react-router'
 import { CaseView } from '@/components/CaseView'
+import { routes } from '@/lib/routes'
 import { useCases } from '@/state/CasesContext'
 
 export function CaseDetailPage() {
@@ -9,7 +10,7 @@ export function CaseDetailPage() {
   const legalCase = caseId ? getCase(caseId) : undefined
 
   if (!legalCase) {
-    return <Navigate to="/cases" replace />
+    return <Navigate to={routes.cases} replace />
   }
 
   return <CaseView legalCase={legalCase} />

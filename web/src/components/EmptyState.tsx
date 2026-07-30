@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 import { Plus, Scale } from 'lucide-react'
 import { Link } from 'react-router'
+import { routes } from '@/lib/routes'
 
 export function EmptyState({
   title,
   body,
   ctaLabel = 'เริ่มวิเคราะห์เคสใหม่',
-  ctaTo = '/cases/new',
+  ctaTo = routes.newCase,
 }: {
   title: string
   body: string
