@@ -20,6 +20,16 @@ LawMate is an AI legal assistant for Thai users: situation analysis, rights, act
 - Do not force-push `main` / `master`.
 - Do not commit `_local/` or secret files even if asked casually — warn and move secrets to GitHub secrets / env instead.
 
-## Stack note
+## Stack
 
-Web demo direction is recorded in conversation / local notes. Prefer the chosen stack once scaffolding exists; do not rewrite frameworks without an explicit request.
+- App lives in `web/` — **Vite + React 19 + TypeScript + Tailwind CSS v4**
+- Packages in use: `react-router`, `lucide-react`, `clsx`, `tailwind-merge`, `@fontsource/sarabun`
+- Vite plugins: `@vitejs/plugin-react`, `@tailwindcss/vite`
+- Path alias: `@/` → `web/src/`
+- Do not rewrite frameworks without an explicit request.
+
+### Commands (`web/`)
+
+- `npm run dev` — local demo
+- `npm run build` — typecheck + production build
+- `npm run lint` — oxlint
