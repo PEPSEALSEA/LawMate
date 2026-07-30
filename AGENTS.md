@@ -33,3 +33,9 @@ LawMate is an AI legal assistant for Thai users: situation analysis, rights, act
 - `npm run dev` — local demo
 - `npm run build` — typecheck + production build
 - `npm run lint` — oxlint
+
+### Deploy
+
+- GitHub Pages via `.github/workflows/deploy-pages.yml` (push to `main` or `workflow_dispatch`)
+- Production base path: `/LawMate/` (`VITE_BASE`)
+- Site: https://pepsealsea.github.io/LawMate/
