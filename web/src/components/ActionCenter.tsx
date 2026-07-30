@@ -1,0 +1,84 @@
+import { FileEdit, Sparkles, UploadCloud } from 'lucide-react'
+import { cn } from '@/lib/cn'
+
+interface ActionCenterProps {
+  onDraftDocument: () => void
+  onUploadEvidence: () => void
+  onConsultAI: () => void
+  activeAction: 'draft' | 'upload' | 'consult' | null
+}
+
+export function ActionCenter({
+  onDraftDocument,
+  onUploadEvidence,
+  onConsultAI,
+  activeAction,
+}: ActionCenterProps) {
+  const items = [
+    {
+      key: 'draft' as const,
+      icon: FileEdit,
+      title: 'Draft Document',
+      subtitle: 'สร้างร่างเอกสารทางกฎหมาย',
+      onClick: onDraftDocument,
+    },
+    {
+      key: 'upload' as const,
+      icon: UploadCloud,
+      title: 'Upload Evidence',
+      subtitle: 'เพิ่มเอกสารหลักฐาน',
+      onClick: onUploadEvidence,
+    },
+    {
+      key: 'consult' as const,
+      icon: Sparkles,
+      title: 'Consult AI Assistant',
+      subtitle: 'วิเคราะห์ความเสี่ยงและข้อกฎหมาย',
+      onClick: onConsultAI,
+    },
+  ]
+
+  return (
+    <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+      <h2 className="text-lg font-bold text-ink">ศูนย์ปฏิบัติการ</h2>
+
+      <div className="mt-4 space-y-3">
+        {items.map((item) => {
+          const isActive = activeAction === item.key
+          return (
+            <button
+              key={item.key}
+              type="button"
+              onClick={item.onClick}
+              className={cn(
+                'flex w-full items-center gap-3 rounded-xl px-4 py-3.5 text-left transition-colors',
+                isActive ? 'bg-brand-900 text-white' : 'bg-surface text-ink hover:bg-brand-50',
+              )}
+            >
+              <span
+                className={cn(
+                  'flex size-10 shrink-0 items-center justify-center rounded-lg',
+                  isActive ? 'bg-white/10 text-white' : 'bg-brand-700/10 text-brand-700',
+                )}
+              >
+                <item.icon className="size-5" aria-hidden />
+              </span>
+              <span>
+                <span
+                  className={cn('block text-sm font-semibold', isActive ? 'text-white' : 'text-ink')}
+                >
+                  {item.title}
+                </span>
+                <span
+                  className={cn('block text-xs', isActive ? 'text-brand-100/70' : 'text-muted')}
+                >
+                  {item.subtitle}
+                </span>
+              </span>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}

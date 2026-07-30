@@ -1,39 +1,37 @@
 import { Navigate, Route, Routes } from 'react-router'
-import { AudienceSection } from '@/components/AudienceSection'
-import { BusinessModelCanvas } from '@/components/BusinessModelCanvas'
-import { ComparisonSection } from '@/components/ComparisonSection'
-import { CTASection } from '@/components/CTASection'
-import { Footer } from '@/components/Footer'
-import { Hero } from '@/components/Hero'
-import { HowItWorks } from '@/components/HowItWorks'
-import { Navbar } from '@/components/Navbar'
-import { ProblemSection } from '@/components/ProblemSection'
-import { UseCaseSection } from '@/components/UseCaseSection'
-
-function HomePage() {
-  return (
-    <div className="min-h-svh bg-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <ProblemSection />
-        <HowItWorks />
-        <ComparisonSection />
-        <UseCaseSection />
-        <AudienceSection />
-        <BusinessModelCanvas />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
-  )
-}
+import { AppShell } from '@/layouts/AppShell'
+import { AlertsPage } from '@/pages/AlertsPage'
+import { CaseDetailPage } from '@/pages/CaseDetailPage'
+import { CasesListPage } from '@/pages/CasesListPage'
+import { DashboardPage } from '@/pages/DashboardPage'
+import { KnowledgeCenterPage } from '@/pages/KnowledgeCenterPage'
+import { NewAnalysisPage } from '@/pages/NewAnalysisPage'
+import { ProfilePage } from '@/pages/ProfilePage'
+import { SettingsPage } from '@/pages/SettingsPage'
+import { AlertsProvider } from '@/state/AlertsContext'
+import { CasesProvider } from '@/state/CasesContext'
+import { ProfileProvider } from '@/state/ProfileContext'
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+    <CasesProvider>
+      <AlertsProvider>
+        <ProfileProvider>
+          <Routes>
+            <Route element={<AppShell />}>
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/cases" element={<CasesListPage />} />
+              <Route path="/cases/new" element={<NewAnalysisPage />} />
+              <Route path="/cases/:caseId" element={<CaseDetailPage />} />
+              <Route path="/knowledge" element={<KnowledgeCenterPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/alerts" element={<AlertsPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+          </Routes>
+        </ProfileProvider>
+      </AlertsProvider>
+    </CasesProvider>
   )
 }
