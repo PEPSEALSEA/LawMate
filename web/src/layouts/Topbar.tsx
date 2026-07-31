@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Bell, LogOut, Scale, Settings, User } from 'lucide-react'
+import { Bell, LogOut, Settings, User } from 'lucide-react'
 import { Link } from 'react-router'
+import { BrandLogo } from '@/components/BrandLogo'
 import { routes } from '@/lib/routes'
 import { useAlerts } from '@/state/AlertsContext'
 import { useProfile } from '@/state/ProfileContext'
@@ -22,11 +23,8 @@ export function Topbar() {
 
   return (
     <header className="flex h-14 items-center justify-between px-4 lg:h-16 lg:justify-end lg:px-2 lg:pt-1">
-      <Link to={routes.app} className="flex items-center gap-2 font-display font-bold text-ink lg:hidden">
-        <span className="flex size-8 items-center justify-center rounded-xl bg-brand-700 text-brand-50">
-          <Scale className="size-4" aria-hidden />
-        </span>
-        LawMate
+      <Link to={routes.app} className="flex items-center lg:hidden" aria-label="LawMate">
+        <BrandLogo imgClassName="h-11 w-auto" />
       </Link>
 
       <div className="flex items-center gap-2 rounded-full bg-panel/80 p-1.5 shadow-sm ring-1 ring-ink/6 backdrop-blur-md">

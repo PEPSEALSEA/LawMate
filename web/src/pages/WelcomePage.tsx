@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, MessageCircleHeart, ScrollText, Search, ShieldCheck } from 'lucide-react'
 import { useNavigate } from 'react-router'
-import welcomeIllustration from '@/assets/welcome-illustration.webp'
+import { BrandLogo } from '@/components/BrandLogo'
 import { routes } from '@/lib/routes'
 
 const features = [
@@ -35,37 +35,34 @@ export function WelcomePage() {
 
       <div className="relative flex w-full flex-1 flex-col items-center justify-center px-6 py-8 text-center sm:py-10">
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full max-w-[20rem] sm:max-w-md"
         >
-          <h1 className="font-display text-5xl font-extrabold tracking-tight text-brand-700 sm:text-7xl">
-            LawMate
-          </h1>
-          <p className="mt-1 text-base font-semibold text-brand-600 sm:text-xl">คู่หูด้านกฎหมาย</p>
-          <p className="mt-2 text-sm leading-relaxed text-muted sm:mt-3 sm:text-base">
+          <BrandLogo
+            alt="LawMate — คู่หูด้านกฎหมาย"
+            imgClassName="mx-auto max-h-[46vh] w-full object-contain sm:max-h-[52vh]"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.12, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-3 sm:mt-4"
+        >
+          <p className="text-base font-semibold text-brand-600 sm:text-xl">คู่หูด้านกฎหมาย</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
             เข้าใจกฎหมายง่ายขึ้น ใช้สิทธิได้มั่นใจในทุกเรื่อง
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mt-2 w-full max-w-[22rem] sm:mt-0 sm:max-w-md"
-        >
-          <img
-            src={welcomeIllustration}
-            alt="ตัวการ์ตูนทนายความน่ารักถือหนังสือกฎหมาย ยืนอยู่หน้าตาชั่งและกองหนังสือกฎหมาย"
-            className="mx-auto h-auto max-h-[42vh] w-full object-contain sm:max-h-[48vh]"
-          />
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.45 }}
-          className="mt-4 sm:mt-6"
+          transition={{ delay: 0.28, duration: 0.45 }}
+          className="mt-5 sm:mt-7"
         >
           <motion.button
             type="button"
@@ -85,7 +82,7 @@ export function WelcomePage() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.45 }}
+          transition={{ delay: 0.38, duration: 0.45 }}
           className="mt-6 grid w-full max-w-md grid-cols-4 gap-2 sm:mt-8 sm:gap-4"
         >
           {features.map((feature) => (

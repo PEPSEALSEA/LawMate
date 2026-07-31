@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { Plus, Scale, Sparkles } from 'lucide-react'
+import { Plus, Sparkles } from 'lucide-react'
 import { Link, NavLink } from 'react-router'
+import { BrandLogo } from '@/components/BrandLogo'
 import { sidebarNavItems } from '@/layouts/navItems'
 import { cn } from '@/lib/cn'
 import { routes } from '@/lib/routes'
@@ -20,14 +21,13 @@ export function Sidebar() {
 
   return (
     <aside className="hidden h-full w-[15.5rem] shrink-0 flex-col overflow-hidden rounded-[1.75rem] bg-panel/90 p-3 shadow-[0_8px_30px_rgba(61,42,28,0.06)] ring-1 ring-ink/6 backdrop-blur-md lg:flex">
-      <Link to={routes.app} className="mb-4 flex shrink-0 items-center gap-3 rounded-2xl px-2.5 py-2.5 transition-colors hover:bg-brand-50/80">
-        <span className="flex size-10 items-center justify-center rounded-2xl bg-brand-700 text-brand-50 shadow-md shadow-brand-700/25">
-          <Scale className="size-5" aria-hidden />
-        </span>
-        <div className="min-w-0">
-          <p className="font-display text-[1.05rem] leading-none font-bold text-ink">LawMate</p>
-          <p className="mt-1 truncate text-[11px] text-muted">คู่หูด้านกฎหมาย</p>
-        </div>
+      <Link
+        to={routes.app}
+        className="mb-4 flex shrink-0 flex-col items-center rounded-2xl px-2 py-2 transition-colors hover:bg-brand-50/80"
+        aria-label="LawMate"
+      >
+        <BrandLogo imgClassName="h-[4.75rem] w-auto max-w-full" />
+        <p className="mt-1 truncate text-[11px] text-muted">คู่หูด้านกฎหมาย</p>
       </Link>
 
       <div className="mb-2 shrink-0 px-2.5">
